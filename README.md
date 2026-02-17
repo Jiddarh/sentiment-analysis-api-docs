@@ -27,3 +27,13 @@ curl -X POST https://api.example.com/v1/classify \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{"text": "Great product!", "model": "sentiment"}'
+Response:{"prediction": "positive", "confidence": 0.94}Python:import requests
+headers = {"Authorization": "Bearer YOUR_API_KEY", "Content-Type": "application/json"}
+data = {"text": "Great product!", "model": "sentiment"}
+resp = requests.post("https://api.example.com/v1/classify", json=data, headers=headers)
+print(resp.json())Node.js:const fetch = require('node-fetch');
+fetch('https://api.example.com/v1/classify', {
+  method: 'POST',
+  headers: {'Authorization': 'Bearer YOUR_API_KEY', 'Content-Type': 'application/json'},
+  body: JSON.stringify({text: 'Great product!', model: 'sentiment'})
+}).then(r => r.json()).then(console.log);
